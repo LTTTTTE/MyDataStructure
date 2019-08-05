@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MyLinkedListTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2019-08-05T08:00:55" hostname="DESKTOP-14JJLV8" time="0.028">
+<testsuite name="MyLinkedListTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2019-08-05T08:32:01" hostname="DESKTOP-14JJLV8" time="0.014">
   <properties/>
-  <testcase name="testAdd" classname="MyLinkedListTest" time="0.002"/>
+  <testcase name="testAdd" classname="MyLinkedListTest" time="0.001"/>
   <testcase name="testGet" classname="MyLinkedListTest" time="0.0"/>
   <testcase name="testSet" classname="MyLinkedListTest" time="0.0"/>
-  <testcase name="testClear" classname="MyLinkedListTest" time="0.012"/>
+  <testcase name="testClear" classname="MyLinkedListTest" time="0.007"/>
   <testcase name="testLastIndexOf" classname="MyLinkedListTest" time="0.0"/>
   <testcase name="testRemoveFirst" classname="MyLinkedListTest" time="0.0"/>
   <testcase name="testRemoveIndex" classname="MyLinkedListTest" time="0.0"/>
   <testcase name="testAddFirst" classname="MyLinkedListTest" time="0.0"/>
-  <testcase name="testAddIndex" classname="MyLinkedListTest" time="0.005"/>
+  <testcase name="testAddIndex" classname="MyLinkedListTest" time="0.0"/>
   <testcase name="testContainsAll" classname="MyLinkedListTest" time="0.0"/>
-  <testcase name="testAddAllIndex" classname="MyLinkedListTest" time="0.001"/>
+  <testcase name="testAddAllIndex" classname="MyLinkedListTest" time="0.0"/>
   <testcase name="testContains" classname="MyLinkedListTest" time="0.0"/>
   <testcase name="testRemoveData" classname="MyLinkedListTest" time="0.0"/>
-  <testcase name="testRemoveLast" classname="MyLinkedListTest" time="0.001"/>
+  <testcase name="testRemoveLast" classname="MyLinkedListTest" time="0.0"/>
   <testcase name="testAddAll" classname="MyLinkedListTest" time="0.0"/>
   <testcase name="testInstance" classname="MyLinkedListTest" time="0.001"/>
   <testcase name="testIndexOf" classname="MyLinkedListTest" time="0.0"/>
-  <testcase name="testRemoveAll" classname="MyLinkedListTest" time="0.001"/>
-  <system-out><![CDATA[20
-200
-1000
-2000
-]]></system-out>
+  <testcase name="testRemoveAll" classname="MyLinkedListTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

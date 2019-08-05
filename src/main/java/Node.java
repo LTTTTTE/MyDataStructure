@@ -1,17 +1,17 @@
-public class Node<Integer> {
-    private Integer data;
+public class Node<T> {
+    private T data;
     public Node prev;
     public Node next;
 
-    public Node(Integer data) {
+    public Node(T data) {
         this.data = data;
     }
 
-    public Integer getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Integer data) {
+    public void setData(T data) {
         this.data = data;
     }
 }

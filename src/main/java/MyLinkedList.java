@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MyLinkedList<Integer> implements List<Integer> {
+public class MyLinkedList<T> implements List<T> {
 
     private int size;
     private Node head;
@@ -28,8 +28,8 @@ public class MyLinkedList<Integer> implements List<Integer> {
     }
 
     @Override
-    public boolean add(Integer data) {
-        Node<Integer> newNode = new Node<>(data);
+    public boolean add(T data) {
+        Node<T> newNode = new Node<>(data);
 
         if(head != null) {
             tail.next = newNode;
@@ -43,7 +43,7 @@ public class MyLinkedList<Integer> implements List<Integer> {
     }
 
     @Override
-    public void add(int index, Integer data) {
+    public void add(int index, T data) {
         if(index == size){
             add(data);
             return;
@@ -56,8 +56,6 @@ public class MyLinkedList<Integer> implements List<Integer> {
         Node target = find(index - 1);
         Node newNode = new Node<>(data);
 
-        System.out.println(target.getData());
-
         newNode.next = target.next;
         target.next = newNode;
         newNode.next.prev = newNode;
@@ -66,8 +64,8 @@ public class MyLinkedList<Integer> implements List<Integer> {
         size++;
     }
 
-    public void addFirst(Integer data) {
-        Node<Integer> newNode = new Node<>(data);
+    public void addFirst(T data) {
+        Node<T> newNode = new Node<>(data);
 
         if(head != null){
             head.prev = newNode;
@@ -79,7 +77,7 @@ public class MyLinkedList<Integer> implements List<Integer> {
         size++;
     }
 
-    public void addLast(Integer data){
+    public void addLast(T data){
         add(data);
     }
 
@@ -110,9 +108,9 @@ public class MyLinkedList<Integer> implements List<Integer> {
         return true;
     }
 
-    public Integer removeFirst(){
+    public T removeFirst(){
         if(head != null){
-            Integer beforeData = (Integer) head.getData();
+            T beforeData = (T) head.getData();
             head = head.next;
             size--;
             return beforeData;
@@ -121,9 +119,9 @@ public class MyLinkedList<Integer> implements List<Integer> {
         }
     }
 
-    public Integer removeLast(){
+    public T removeLast(){
         if(head != null){
-            Integer beforeData = (Integer) tail.getData();
+            T beforeData = (T) tail.getData();
             tail = tail.prev;
             tail.next = null;
             size--;
@@ -134,7 +132,7 @@ public class MyLinkedList<Integer> implements List<Integer> {
     }
 
     @Override
-    public Integer remove(int index) {
+    public T remove(int index) {
         if(index == 0){
             return removeFirst();
         }
@@ -144,7 +142,7 @@ public class MyLinkedList<Integer> implements List<Integer> {
 
         Node target = find(index);
         Node prevTarget = target.prev;
-        Integer beforeData = (Integer) target.getData();
+        T beforeData = (T) target.getData();
 
         prevTarget.next = target.next;
         prevTarget.next.prev = prevTarget;
@@ -161,8 +159,8 @@ public class MyLinkedList<Integer> implements List<Integer> {
     }
 
     @Override
-    public Integer get(int index) {
-        return (Integer) find(index).getData();
+    public T get(int index) {
+        return (T) find(index).getData();
     }
 
     public Node find(int index){
@@ -179,7 +177,7 @@ public class MyLinkedList<Integer> implements List<Integer> {
     }
 
     @Override
-    public Integer set(int index, Integer element) {
+    public T set(int index, T element) {
         find(index).setData(element);
         return element;
     }
@@ -219,21 +217,21 @@ public class MyLinkedList<Integer> implements List<Integer> {
     }
 
     @Override
-    public boolean addAll(Collection<? extends Integer> c) {
+    public boolean addAll(Collection<? extends T> c) {
         boolean flag = true;
 
-        for(Integer s : c){
+        for(T s : c){
             flag &= add(s);
         }
         return flag;
     }
 
     @Override
-    public boolean addAll(int index, Collection<? extends Integer> c) {
+    public boolean addAll(int index, Collection<? extends T> c) {
 
         int beforeSize = size;
 
-        for(Integer s : c){
+        for(T s : c){
             add(index++, s);
         }
         return beforeSize + c.size() == size;
@@ -257,22 +255,22 @@ public class MyLinkedList<Integer> implements List<Integer> {
     }
 
     @Override
-    public ListIterator<Integer> listIterator() {
+    public ListIterator<T> listIterator() {
         return null;
     }
 
     @Override
-    public ListIterator<Integer> listIterator(int index) {
+    public ListIterator<T> listIterator(int index) {
         return null;
     }
 
     @Override
-    public List<Integer> subList(int fromIndex, int toIndex) {
+    public List<T> subList(int fromIndex, int toIndex) {
         return null;
     }
 
     @Override
-    public Iterator<Integer> iterator() {
+    public Iterator<T> iterator() {
         return null;
     }
 
