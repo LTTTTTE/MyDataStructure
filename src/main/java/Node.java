@@ -1,10 +1,12 @@
 public class Node<T> {
     private T data;
-    public Node prev;
-    public Node next;
+    public Node<T> prev;
+    public Node<T> next;
 
     public Node(T data) {
         this.data = data;
+        this.prev = null;
+        this.next = null;
     }
 
     public T getData() {

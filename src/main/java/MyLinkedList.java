@@ -3,8 +3,8 @@ import java.util.*;
 public class MyLinkedList<T> implements List<T> {
 
     private int size;
-    private Node head;
-    private Node tail;
+    private Node<T> head;
+    private Node<T> tail;
 
     public MyLinkedList() {
         this.size = 0;
@@ -29,23 +29,14 @@ public class MyLinkedList<T> implements List<T> {
 
     @Override
     public boolean add(T data) {
-        Node<T> newNode = new Node<>(data);
-
-        if(head != null) {
-            tail.next = newNode;
-            newNode.prev = tail;
-            tail = newNode;
-        } else {
-            head = tail = newNode;
-        }
-        size++;
+        addLast(data);
         return true;
     }
 
     @Override
     public void add(int index, T data) {
         if(index == size){
-            add(data);
+            addLast(data);
             return;
         }
         if(index == 0){
@@ -53,8 +44,8 @@ public class MyLinkedList<T> implements List<T> {
             return;
         }
 
-        Node target = find(index - 1);
-        Node newNode = new Node<>(data);
+        Node<T> target = find(index - 1);
+        Node<T> newNode = new Node<>(data);
 
         newNode.next = target.next;
         target.next = newNode;
@@ -78,7 +69,16 @@ public class MyLinkedList<T> implements List<T> {
     }
 
     public void addLast(T data){
-        add(data);
+        Node<T> newNode = new Node<>(data);
+
+        if(head != null) {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        } else {
+            head = tail = newNode;
+        }
+        size++;
     }
 
     @Override
@@ -93,7 +93,7 @@ public class MyLinkedList<T> implements List<T> {
             return true;
         }
 
-        Node target = head;
+        Node<T> target = head;
         while(target != null){
             if(target.getData().equals(o)) {
                 break;
@@ -101,7 +101,7 @@ public class MyLinkedList<T> implements List<T> {
             target = target.next;
         }
 
-        Node prevTarget = target.prev;
+        Node<T> prevTarget = target.prev;
         prevTarget.next = target.next;
         prevTarget.next.prev = prevTarget;
         size--;
@@ -110,7 +110,7 @@ public class MyLinkedList<T> implements List<T> {
 
     public T removeFirst(){
         if(head != null){
-            T beforeData = (T) head.getData();
+            T beforeData = head.getData();
             head = head.next;
             size--;
             return beforeData;
@@ -121,7 +121,7 @@ public class MyLinkedList<T> implements List<T> {
 
     public T removeLast(){
         if(head != null){
-            T beforeData = (T) tail.getData();
+            T beforeData = tail.getData();
             tail = tail.prev;
             tail.next = null;
             size--;
@@ -140,9 +140,9 @@ public class MyLinkedList<T> implements List<T> {
             return removeLast();
         }
 
-        Node target = find(index);
-        Node prevTarget = target.prev;
-        T beforeData = (T) target.getData();
+        Node<T> target = find(index);
+        Node<T> prevTarget = target.prev;
+        T beforeData = target.getData();
 
         prevTarget.next = target.next;
         prevTarget.next.prev = prevTarget;
@@ -160,15 +160,15 @@ public class MyLinkedList<T> implements List<T> {
 
     @Override
     public T get(int index) {
-        return (T) find(index).getData();
+        return find(index).getData();
     }
 
-    public Node find(int index){
+    public Node<T> find(int index){
         if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException();
         }
 
-        Node target = head;
+        Node<T> target = head;
         while(index > 0){
             target = target.next;
             index --;
@@ -186,7 +186,7 @@ public class MyLinkedList<T> implements List<T> {
     public int indexOf(Object data) {
         int index = 0;
 
-        for(Node target = head; target != null; target = target.next, index++){
+        for(Node<T> target = head; target != null; target = target.next, index++){
             if(target.getData().equals(data))
                 return index;
         }
@@ -197,7 +197,7 @@ public class MyLinkedList<T> implements List<T> {
     public int lastIndexOf(Object data) {
         int index = size - 1;
 
-        for(Node target = tail; target != null; target = target.prev, index--){
+        for(Node<T> target = tail; target != null; target = target.prev, index--){
             if(target.getData().equals(data))
                 return index;
         }
@@ -286,7 +286,7 @@ public class MyLinkedList<T> implements List<T> {
 
     public String toString(){
         String str = "[";
-        for(Node target = head; target != null ; target = target.next){
+        for(Node<T> target = head; target != null ; target = target.next){
             str += target.getData();
             if(target.next != null){
                 str += ", ";
