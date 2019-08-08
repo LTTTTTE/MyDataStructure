@@ -23,6 +23,15 @@ public class MyListTest {
     }
 
     @Test
+    public void testMyListClearEmpty(){
+        MyList<String> myList = new MyList<>();
+        myList.add("Hello");
+        myList.add("World");
+        myList.clear();
+        assertTrue(myList.isEmpty());
+    }
+
+    @Test
     public void testMyListAddIndex(){
         MyList<String> myList = new MyList<>();
         myList.add("Hello");
@@ -62,9 +71,16 @@ public class MyListTest {
         myList.add("A");
         myList.add("B");
         myList.add("C");
+        myList.add("D");
 
         assertTrue(myList.addAll(1,stringList));
-        assertEquals(myList.size(),5);
+        assertEquals(myList.size(),6);
+        assertEquals(myList.toString(),"[A, Hello, World, B, C, D]");
+
+        myList.addAll(0,stringList);
+        assertEquals(myList.size(),8);
+        assertEquals(myList.toString(),"[Hello, World, A, Hello, World, B, C, D]");
+
     }
 
     @Test
@@ -160,5 +176,20 @@ public class MyListTest {
         }
 
         assertEquals(str,"HelloWorldHiJavaAndroid");
+    }
+
+    @Test
+    public void testMyListContainsAll(){
+        MyList<String> myList = new MyList<>();
+        myList.add("Hello");
+        myList.add("World");
+        myList.add("Hi");
+        myList.add("Java");
+        myList.add("Android");
+
+        List<String> stringList = new ArrayList<>();
+        stringList.add("Hi");
+        stringList.add("Android");
+        assertTrue(myList.containsAll(stringList));
     }
 }

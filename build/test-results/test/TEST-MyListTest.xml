@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MyListTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2019-08-07T07:18:50" hostname="DESKTOP-14JJLV8" time="0.005">
+<testsuite name="MyListTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-08T05:50:59" hostname="DESKTOP-ARL8TJG" time="0.002">
   <properties/>
-  <testcase name="testMyListIndexOf" classname="MyListTest" time="0.001"/>
-  <testcase name="testMyListNotNull" classname="MyListTest" time="0.0"/>
-  <testcase name="testMyListAddIndex" classname="MyListTest" time="0.0"/>
-  <testcase name="testMyListLastIndexOf" classname="MyListTest" time="0.0"/>
-  <testcase name="testMyListContains" classname="MyListTest" time="0.0"/>
-  <testcase name="testMyListAdd" classname="MyListTest" time="0.001"/>
-  <testcase name="testMyListAddAllIndex" classname="MyListTest" time="0.0"/>
-  <testcase name="testMyListIterator" classname="MyListTest" time="0.001"/>
-  <testcase name="testMyListRemoveAll" classname="MyListTest" time="0.0"/>
-  <testcase name="testMyListAddAll" classname="MyListTest" time="0.0"/>
-  <testcase name="testMyListRemove" classname="MyListTest" time="0.001"/>
+  <testcase name="testMyListAddAllIndex" classname="MyListTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -42,8 +42,8 @@ public class MyList<String> implements List<String> {
         add(element);
 
         //sort
-        for(int i = size -1 ; i > index ; i--){
-            array[index] = array[i -1];
+        for(int i = size -1; i > index ; i--){
+            array[i] = array[i -1];
         }
         array[index] = element;
 
@@ -214,5 +214,16 @@ public class MyList<String> implements List<String> {
         return null;
     }
 
+    public java.lang.String toString(){
+        java.lang.String str = "[";
+        for(int i=0; i<size; i++){
+            str+=array[i];
+
+            if(i!=size-1){
+                str +=", ";
+            }
+        }
+        return str+"]";
+    }
 
 }
